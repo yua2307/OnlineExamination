@@ -5,7 +5,6 @@
  */
 package com.mycompany.entity;
 
-import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,38 +21,44 @@ import javax.persistence.Table;
  *
  * @author macbookpro
  */
+
+
 @Entity
 @Table(name="Grade")
-public class GradeEntity  implements Serializable  {
-    
+public class GradeEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")        
     private int id;
     
-    @Column(name = "gradeName")
-    private String gradeName;
+    @Column(name = "schoolYear")
+    private int schoolYear;
     
-
-    // relationship with Student
-    @OneToMany(mappedBy = "grade",fetch = FetchType.LAZY)
+    // relation with course 
+    @OneToMany(mappedBy = "grade" ,fetch = FetchType.LAZY)
+    private List<CourseEntity> listCourseEntity;
+    
+     // relation with student 
+    @OneToMany(mappedBy = "grade" ,fetch = FetchType.LAZY)
     private List<StudentEntity> listStudentEntity;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public GradeEntity(int id, int schoolYear, List<CourseEntity> listCourseEntity, List<StudentEntity> listStudentEntity) {
         this.id = id;
+        this.schoolYear = schoolYear;
+        this.listCourseEntity = listCourseEntity;
+        this.listStudentEntity = listStudentEntity;
     }
 
-    public String getGradeName() {
-        return gradeName;
+    public GradeEntity() {
     }
 
-    public void setGradeName(String gradeName) {
-        this.gradeName = gradeName;
+    public List<CourseEntity> getListCourseEntity() {
+        return listCourseEntity;
+    }
+
+    public void setListCourseEntity(List<CourseEntity> listCourseEntity) {
+        this.listCourseEntity = listCourseEntity;
     }
 
     public List<StudentEntity> getListStudentEntity() {
@@ -63,23 +69,23 @@ public class GradeEntity  implements Serializable  {
         this.listStudentEntity = listStudentEntity;
     }
 
-    public GradeEntity(int id, String gradeName, List<StudentEntity> listStudentEntity) {
-        this.id = id;
-        this.gradeName = gradeName;
-        this.listStudentEntity = listStudentEntity;
+    public int getId() {
+        return id;
     }
 
-    public GradeEntity() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getSchoolYear() {
+        return schoolYear;
+    }
+
+    public void setSchoolYear(int schoolYear) {
+        this.schoolYear = schoolYear;
     }
     
     
     
     
-    
-    
-    
-    
-    
-    
-            
 }

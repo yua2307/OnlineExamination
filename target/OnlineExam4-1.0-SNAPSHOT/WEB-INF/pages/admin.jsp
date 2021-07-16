@@ -434,21 +434,14 @@
                         <div class="app-sidebar__inner">
                             <ul class="vertical-nav-menu">
                                 <a href="#"><li class="app-sidebar__heading"> Dash Boards</li></a>
+                                
+   
                                 <li class="app-sidebar__heading">Manage Courses</li>
                                 <li>
-                                    <a href="index.html">
+                                    <a href="<c:url value="/admin/course"/>" >
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Course
                                     </a>
-                                    <ul>
-                                        <li>
-                                            <a href="elements-buttons-standard.html">
-                                                <i class="metismenu-icon"></i>
-                                                Math
-                                            </a>
-                                        </li>
-
-                                    </ul>
                                 </li>
                                 <li class="app-sidebar__heading">Manage Exam</li>
                                 <li>
@@ -484,7 +477,7 @@
 
                                     </a>
                                 </li>
-                                <li class="app-sidebar__heading">Manage Exam</li>
+                                <li class="app-sidebar__heading">Ranking</li>
                                 <li>
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-diamond"></i>

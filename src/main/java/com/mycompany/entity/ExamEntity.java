@@ -20,6 +20,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -38,7 +39,7 @@ public class ExamEntity  implements Serializable {
     @Column(name = "createDate", columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
-    
+
     
     @Column(name="detail")
     private String detail;
@@ -51,19 +52,22 @@ public class ExamEntity  implements Serializable {
     
     @Column(name="scheduledTime")
     private int scheduledTime;
-    
-    
+
    // relation with student exam score
     
     @OneToMany(mappedBy = "exam" , fetch = FetchType.LAZY)
     private List<StudentExamScoreEntity> listStudentExamScoreEntity;
     
    // relation with student exam question
-    
     @OneToMany(mappedBy = "exam" , fetch = FetchType.LAZY)
     private List<ExamQuestionEntity> listExamQuestionEntity;
 
-    public ExamEntity(int id, Date createDate, String detail, String name, String type, int scheduledTime, List<StudentExamScoreEntity> listStudentExamScoreEntity, List<ExamQuestionEntity> listExamQuestionEntity) {
+    // relation with course entity
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private CourseEntity course ; 
+
+    public ExamEntity(int id, Date createDate, String detail, String name, String type, int scheduledTime, List<StudentExamScoreEntity> listStudentExamScoreEntity, List<ExamQuestionEntity> listExamQuestionEntity, CourseEntity course) {
         this.id = id;
         this.createDate = createDate;
         this.detail = detail;
@@ -72,25 +76,10 @@ public class ExamEntity  implements Serializable {
         this.scheduledTime = scheduledTime;
         this.listStudentExamScoreEntity = listStudentExamScoreEntity;
         this.listExamQuestionEntity = listExamQuestionEntity;
+        this.course = course;
     }
 
     public ExamEntity() {
-    }
-
-    public List<StudentExamScoreEntity> getListStudentExamScoreEntity() {
-        return listStudentExamScoreEntity;
-    }
-
-    public void setListStudentExamScoreEntity(List<StudentExamScoreEntity> listStudentExamScoreEntity) {
-        this.listStudentExamScoreEntity = listStudentExamScoreEntity;
-    }
-
-    public List<ExamQuestionEntity> getListExamQuestionEntity() {
-        return listExamQuestionEntity;
-    }
-
-    public void setListExamQuestionEntity(List<ExamQuestionEntity> listExamQuestionEntity) {
-        this.listExamQuestionEntity = listExamQuestionEntity;
     }
 
     public int getId() {
@@ -140,14 +129,31 @@ public class ExamEntity  implements Serializable {
     public void setScheduledTime(int scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
-    
-    
-    
-    
-   
-    
-    
-    
+
+    public List<StudentExamScoreEntity> getListStudentExamScoreEntity() {
+        return listStudentExamScoreEntity;
+    }
+
+    public void setListStudentExamScoreEntity(List<StudentExamScoreEntity> listStudentExamScoreEntity) {
+        this.listStudentExamScoreEntity = listStudentExamScoreEntity;
+    }
+
+    public List<ExamQuestionEntity> getListExamQuestionEntity() {
+        return listExamQuestionEntity;
+    }
+
+    public void setListExamQuestionEntity(List<ExamQuestionEntity> listExamQuestionEntity) {
+        this.listExamQuestionEntity = listExamQuestionEntity;
+    }
+
+    public CourseEntity getCourse() {
+        return course;
+    }
+
+    public void setCourse(CourseEntity course) {
+        this.course = course;
+    }
+
     
         
     

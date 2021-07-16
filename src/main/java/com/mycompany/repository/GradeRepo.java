@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
  * @author macbookpro
  */
 @Repository
-public interface GradeRepo extends CrudRepository<GradeEntity,Integer>{
+public interface GradeRepo extends CrudRepository<CourseEntity,Integer>{
+    
     
 }

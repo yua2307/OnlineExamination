@@ -53,7 +53,7 @@ public class StudentEntity implements Serializable{
     @Column(name = "enabled")
     private Boolean enabled;
     
-    // relationship with Grade
+    // relationship with grade
     @ManyToOne
     @JoinColumn(name = "grade_id")
     private GradeEntity grade;
@@ -75,7 +75,7 @@ public class StudentEntity implements Serializable{
     @OneToMany(mappedBy = "student",fetch = FetchType.LAZY)
     private List<AnswerOfStudentEntity> listAnswerOfStudentEntity;
 
-    public StudentEntity(int id, String name, String username, String password, String avatarPath, String avatarFilePath, Boolean enabled, GradeEntity grade, List<UserRoleEntity> listUserRole, List<StudentExamScoreEntity> listStudentExamScoreEntity, List<AnswerOfStudentEntity> listAnswerOfStudentEntity) {
+    public StudentEntity(int id, String name, String username, String password, String avatarPath, String avatarFilePath, Boolean enabled, GradeEntity gradeEntity, List<UserRoleEntity> listUserRole, List<StudentExamScoreEntity> listStudentExamScoreEntity, List<AnswerOfStudentEntity> listAnswerOfStudentEntity) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -83,14 +83,13 @@ public class StudentEntity implements Serializable{
         this.avatarPath = avatarPath;
         this.avatarFilePath = avatarFilePath;
         this.enabled = enabled;
-        this.grade = grade;
+        this.grade = gradeEntity;
         this.listUserRole = listUserRole;
         this.listStudentExamScoreEntity = listStudentExamScoreEntity;
         this.listAnswerOfStudentEntity = listAnswerOfStudentEntity;
     }
 
     
-
     public StudentEntity() {
     }
 
@@ -142,13 +141,15 @@ public class StudentEntity implements Serializable{
         this.avatarFilePath = avatarFilePath;
     }
 
-    public GradeEntity getGrade() {
-        return grade;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setGrade(GradeEntity grade) {
-        this.grade = grade;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
+
+    
 
     public List<UserRoleEntity> getListUserRole() {
         return listUserRole;
@@ -174,18 +175,13 @@ public class StudentEntity implements Serializable{
         this.listAnswerOfStudentEntity = listAnswerOfStudentEntity;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
+    public GradeEntity getGradeEntity() {
+        return grade;
     }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+    public void setGradeEntity(GradeEntity gradeEntity) {
+        this.grade = gradeEntity;
     }
     
-    
-    
-    
-    
-    
-    
+
 }

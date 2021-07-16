@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BaseController {
 
-    @GetMapping(value = "/index")
+    @GetMapping(value = {"/" ,"index"})
     public String toIndexPage() {
         return "login";
     }

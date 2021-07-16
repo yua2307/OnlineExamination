@@ -32,9 +32,9 @@
         </param-value>
     </context-param>
     
-     <welcome-file-list>
+<!--     <welcome-file-list>
         <welcome-file>index2.jsp</welcome-file>
-    </welcome-file-list>
+    </welcome-file-list>-->
     
     
     <!--         Spring Security -->
