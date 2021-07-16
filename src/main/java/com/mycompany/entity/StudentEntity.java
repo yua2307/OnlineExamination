@@ -50,6 +50,8 @@ public class StudentEntity implements Serializable{
     private String avatarFilePath;
     
     
+    @Column(name = "enabled")
+    private Boolean enabled;
     
     // relationship with Grade
     @ManyToOne
@@ -73,18 +75,21 @@ public class StudentEntity implements Serializable{
     @OneToMany(mappedBy = "student",fetch = FetchType.LAZY)
     private List<AnswerOfStudentEntity> listAnswerOfStudentEntity;
 
-    public StudentEntity(int id, String name, String username, String password, String avatarPath, String avatarFilePath, GradeEntity grade, List<UserRoleEntity> listUserRole, List<StudentExamScoreEntity> listStudentExamScoreEntity, List<AnswerOfStudentEntity> listAnswerOfStudentEntity) {
+    public StudentEntity(int id, String name, String username, String password, String avatarPath, String avatarFilePath, Boolean enabled, GradeEntity grade, List<UserRoleEntity> listUserRole, List<StudentExamScoreEntity> listStudentExamScoreEntity, List<AnswerOfStudentEntity> listAnswerOfStudentEntity) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
         this.avatarPath = avatarPath;
         this.avatarFilePath = avatarFilePath;
+        this.enabled = enabled;
         this.grade = grade;
         this.listUserRole = listUserRole;
         this.listStudentExamScoreEntity = listStudentExamScoreEntity;
         this.listAnswerOfStudentEntity = listAnswerOfStudentEntity;
     }
+
+    
 
     public StudentEntity() {
     }
@@ -167,6 +172,14 @@ public class StudentEntity implements Serializable{
 
     public void setListAnswerOfStudentEntity(List<AnswerOfStudentEntity> listAnswerOfStudentEntity) {
         this.listAnswerOfStudentEntity = listAnswerOfStudentEntity;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
     
     

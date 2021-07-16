@@ -32,17 +32,17 @@
                 <div class="wrap-login100">
                     <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
                         <span class="login100-form-title-1">
-                            Sign In
+                            Online Examination System
                         </span>
                     </div>
 
 
-                    <form method="POST" action="<c:url value='/j_spring_security_login'/>"  id="login-form" name='loginForm' class="login100-form validate-form">
+                    <form method="POST" action="<c:url value='/j_spring_security_check'/>"  id="login-form" name='loginForm' class="login100-form validate-form">
 
 
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                             <span class="label-input100">Username</span>
-                            <input class="input100" type="text" name="username" placeholder="Enter Username">
+                            <input class="input100" type="text" name="username" placeholder="Enter Username" value="${userName}">
                             <span class="focus-input100"></span>
                         </div>
 
