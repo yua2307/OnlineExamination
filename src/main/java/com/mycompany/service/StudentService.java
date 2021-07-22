@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.mycompany.repository.*;
 import com.mycompany.entity.*;
+import java.util.List;
 /**
  *
  * @author macbookpro
@@ -19,6 +20,11 @@ public class StudentService {
     
     @Autowired
     StudentRepo studentRepo;
+    
+    
+    public List<StudentEntity> getAllStudent(){
+        return (List<StudentEntity>) studentRepo.findAll();
+    }
     
     
 }

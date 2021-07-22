@@ -38,8 +38,8 @@ public class StudentEntity implements Serializable{
     @Column(name="username")
      private String username;
     
-     @Column(name="password")
-     private String password;
+    @Column(name="password")
+    private String password;
      
      
     @Column(name = "avatarPath")

@@ -48,16 +48,25 @@ public class CourseEntity  implements Serializable  {
     @OneToMany(mappedBy = "course",fetch = FetchType.LAZY)
     private List<ExamEntity> listExamEntity;
 
-    public CourseEntity(int id, String courseName, String major, GradeEntity gradeEntity, List<ExamEntity> listExamEntity) {
+    public CourseEntity() {
+    }
+
+    public CourseEntity(int id, String courseName, String major, GradeEntity grade, List<ExamEntity> listExamEntity) {
         this.id = id;
         this.courseName = courseName;
         this.major = major;
-        this.grade = gradeEntity;
+        this.grade = grade;
         this.listExamEntity = listExamEntity;
     }
 
-    public CourseEntity() {
+    public CourseEntity(String courseName, String major, GradeEntity grade) {
+        this.courseName = courseName;
+        this.major = major;
+        this.grade = grade;
+
     }
+    
+
 
     public int getId() {
         return id;
@@ -83,12 +92,12 @@ public class CourseEntity  implements Serializable  {
         this.major = major;
     }
 
-    public GradeEntity getGradeEntity() {
+    public GradeEntity getGrade() {
         return grade;
     }
 
-    public void setGradeEntity(GradeEntity gradeEntity) {
-        this.grade = gradeEntity;
+    public void setGrade(GradeEntity grade) {
+        this.grade = grade;
     }
 
     public List<ExamEntity> getListExamEntity() {
@@ -99,19 +108,6 @@ public class CourseEntity  implements Serializable  {
         this.listExamEntity = listExamEntity;
     }
 
-    
 
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
             
 }

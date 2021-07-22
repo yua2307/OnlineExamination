@@ -6,6 +6,7 @@
 package com.mycompany.controller;
 
 import com.mycompany.entity.CourseEntity;
+import com.mycompany.object.CourseInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.mycompany.service.*;
 import java.util.List;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 /**
  *
  * @author macbookpro
@@ -20,22 +23,34 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/course")
 public class CourseController {
     
     @Autowired
     CourseService courseService;
     
+    @Autowired 
+    GradeService gradeService;
     
-    @GetMapping("/course")
+    
+    @GetMapping("/list")
     public String listCourse(Model model){
         
-        List<CourseEntity> listCourse = courseService.getAll();
-        
-        System.out.println("List Size"  + listCourse.size());
-        
-        model.addAttribute("listCourse", listCourse);
+        model.addAttribute("listGrade", gradeService.getAll());
+        model.addAttribute("course",new CourseInfo());
+        model.addAttribute("listCourse", courseService.getAll());
         return "manageCourse";
+    }
+    
+    
+    @PostMapping("/add")
+    public String addCourse(@ModelAttribute("course") CourseInfo courseInfo){
+        
+        System.out.println("Grade ID" + courseInfo.getGradeId() );
+        CourseEntity courseNew = new CourseEntity(courseInfo.getCourseName(), courseInfo.getMajor() , gradeService.getGradeById(courseInfo.getGradeId()));
+        
+        courseService.saveCourse(courseNew);
+        return "redirect:/admin/course/list";
     }
         
 }

@@ -4,12 +4,16 @@ com/mycompany/entity/UserRoleEntity.class
 com/mycompany/service/QuestionService.class
 redirectLogin/MySimpleUrlAuthenticationSuccessHandler.class
 com/mycompany/service/AnswerOfStudentService.class
+com/mycompany/object/CourseInfo.class
 com/mycompany/repository/ExamQuestionRepo.class
 com/mycompany/repository/ExamRepo.class
+com/mycompany/controller/CourseController.class
+com/mycompany/service/CourseService.class
 com/mycompany/repository/QuestionRepo.class
 com/mycompany/entity/AnswerOfStudentEntity.class
 com/mycompany/repository/AnswerOfStudentRepo.class
 com/mycompany/repository/StudentExamScoreRepo.class
+com/mycompany/controller/ExamController.class
 com/mycompany/entity/ExamEntity.class
 com/mycompany/entity/StudentEntity.class
 com/mycompany/service/ExamQuestionService.class
@@ -22,6 +26,7 @@ com/mycompany/entity/ExamQuestionEntity.class
 com/mycompany/controller/BaseController.class
 com/mycompany/entity/CourseEntity.class
 com/mycompany/entity/GradeEntity.class
+com/mycompany/repository/CourseRepo.class
 com/mycompany/repository/UserRoleRepo.class
 com/mycompany/service/GradeService.class
 com/mycompany/service/StudentService.class

@@ -6,6 +6,7 @@
 package com.mycompany.repository;
 
 import com.mycompany.entity.*;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 /**
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author macbookpro
  */
 @Repository
-public interface GradeRepo extends CrudRepository<CourseEntity,Integer>{
-    
-    
+public interface GradeRepo extends CrudRepository<GradeEntity,Integer>{
+   
 }

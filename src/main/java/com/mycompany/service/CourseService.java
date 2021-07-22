@@ -29,4 +29,8 @@ public class CourseService {
     }
     
     
+    public  CourseEntity saveCourse(CourseEntity courseEntity){
+        return courseRepo.save(courseEntity);
+    }
+    
 }

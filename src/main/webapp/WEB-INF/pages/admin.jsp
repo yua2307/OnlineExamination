@@ -438,7 +438,7 @@
    
                                 <li class="app-sidebar__heading">Manage Courses</li>
                                 <li>
-                                    <a href="<c:url value="/admin/course"/>" >
+                                    <a href="<c:url value="/admin/course/"/>" >
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Course
                                     </a>

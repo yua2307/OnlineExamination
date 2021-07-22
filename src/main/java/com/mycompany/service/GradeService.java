@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.mycompany.repository.*;
 import com.mycompany.entity.*;
+import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -19,4 +21,16 @@ public class GradeService {
     
     @Autowired
     GradeRepo gradeRepo;
+    
+    
+    public List<GradeEntity> getAll(){
+    
+        return (List<GradeEntity>) gradeRepo.findAll();
+    }
+    
+    public GradeEntity getGradeById(int id){
+        
+        Optional<GradeEntity> Opt = gradeRepo.findById(id);
+        return Opt.isPresent() ? Opt.get() : null;
+    }
 }

@@ -31,7 +31,8 @@
         <intercept-url pattern="/logout" access="permitAll"/>
         <intercept-url pattern="/login" access="permitAll"/>
         <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" /> 
-        <!-- <intercept-url pattern="/**" access="permitAll" /> -->
+         <intercept-url pattern="/**" access="permitAll" /> 
+         <intercept-url pattern="/resources/**" access="permitAll" /> 
         <intercept-url pattern="/student/**" access="hasRole('ROLE_USER')" />
         <!-- access denied page -->
         

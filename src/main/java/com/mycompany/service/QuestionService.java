@@ -18,6 +18,6 @@ import com.mycompany.entity.*;
 public class QuestionService {
     
     
-     @Autowired
+    @Autowired
     QuestionRepo QuestionRepo;
 }

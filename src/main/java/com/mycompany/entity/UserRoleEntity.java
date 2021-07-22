@@ -53,8 +53,6 @@ public class UserRoleEntity implements Serializable {
     public UserRoleEntity() {
     }
     
-    
-    
 
     public int getId() {
         return id;

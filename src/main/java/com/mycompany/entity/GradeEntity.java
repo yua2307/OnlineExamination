@@ -5,6 +5,7 @@
  */
 package com.mycompany.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import jdk.javadoc.internal.doclets.toolkit.SerializedFormWriter;
 
 /**
  *
@@ -25,7 +27,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Grade")
-public class GradeEntity {
+public class GradeEntity implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,9 +85,6 @@ public class GradeEntity {
 
     public void setSchoolYear(int schoolYear) {
         this.schoolYear = schoolYear;
+
     }
-    
-    
-    
-    
-}
+}           

@@ -5,7 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Content-Language" content="en">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>ChartJS - Huge selection of charts created with the React ChartJS Plugin</title>
+        <title>Manage Course</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
         <meta name="description" content="Huge selection of charts created with the React ChartJS Plugin">
         <meta name="msapplication-tap-highlight" content="no">
@@ -430,7 +431,8 @@
                                 </span>
                             </button>
                         </span>
-                    </div>    <div class="scrollbar-sidebar">
+                    </div> 
+                    <div class="scrollbar-sidebar">
                         <div class="app-sidebar__inner">
                             <ul class="vertical-nav-menu">
                                 <a href="#"><li class="app-sidebar__heading"> Dash Boards</li></a>
@@ -438,7 +440,7 @@
 
                                 <li class="app-sidebar__heading">Manage Courses</li>
                                 <li>
-                                    <a href="<c:url value="/admin/course"/>">
+                                    <a href="<c:url value="/admin/course/"/>">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Course
                                     </a>
@@ -562,34 +564,20 @@
                         <!--                    page content-->
                         <div class="row">
                             <div class="col-lg-12">
-                                
-                       
-                            <div class="main-card mb-5 card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">List Course</h5>
-                                        <div>
-                                            <form class="form-inline">
-                                                <div class="mb-3 mr-sm-3 mb-sm-0 position-relative form-group">
-                                                    <label  class="mr-sm-2">Course</label>
-                                                    <input name="courseName" id="courseName" placeholder="Course Name" type="text" class="form-control">
-                                                </div>
-                                                <div class="mb-3 mr-sm-3 mb-sm-0 position-relative form-group">
-                                                    <label  class="mr-sm-2">Major</label>
-                                                    <input name="major" id="Major" placeholder="Major" type="text" class="form-control">
-                                                </div>
-                                                <div class="mb-3 mr-sm-3 mb-sm-0 position-relative form-group">
-                                                    <label  class="mr-sm-2">Major</label>
-                                                    <input name="major" id="Major" placeholder="Major" type="text" class="form-control">
-                                                </div>
 
-                                               
-                                                <button class="btn btn-primary">Submit</button>
-                                            </form>
-                                          
+
+                                <div class="main-card mb-5 card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Manage Course</h5>
+
+                                        <div>
+                                            
+                                           
+
                                         </div>
                                     </div>
                                 </div>   
-                                     </div>         
+                            </div>         
 
 
                         </div>
@@ -610,17 +598,17 @@
                                             </thead>
                                             <tbody>
                                                 <c:forEach var="c" items="${listCourse}">
-                                                <tr>
-                                                    <th scope="row">${c.id}</th>
-                                                    <td>${c.courseName}</td>
-                                                    <td>${c.major}</td>
-                                                    <td>${c.getGradeEntity().getSchoolYear()}</td>
-                                                    <td><a href="#"><i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i></a></td>
-                                                    <td><a href="#"><i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i></a></td>
-                                                </tr>
+                                                    <tr>
+                                                        <th scope="row">${c.id}</th>
+                                                        <td>${c.courseName}</td>
+                                                        <td>${c.major}</td>
+                                                        <td>${c.getGrade().getSchoolYear()}</td>
+                                                        <td><a href="#"><i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i></a></td>
+                                                        <td><a href="#"><i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i></a></td>
+                                                    </tr>
                                                 </c:forEach>
                                             </tbody>
-                                            
+
                                         </table>
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 /Users/macbookpro/Desktop/OnlineExamination/OnlineExam4/src/main/java/com/mycompany/service/GradeService.java
 /Users/macbookpro/Desktop/OnlineExamination/OnlineExam4/src/main/java/com/mycompany/repository/CourseRepo.java
 /Users/macbookpro/Desktop/OnlineExamination/OnlineExam4/src/main/java/com/mycompany/service/StudentService.java
+/Users/macbookpro/Desktop/OnlineExamination/OnlineExam4/src/main/java/com/mycompany/object/CourseInfo.java
 /Users/macbookpro/Desktop/OnlineExamination/OnlineExam4/src/main/java/com/mycompany/repository/StudentRepo.java
 /Users/macbookpro/Desktop/OnlineExamination/OnlineExam4/src/main/java/com/mycompany/service/UserRoleService.java
 /Users/macbookpro/Desktop/OnlineExamination/OnlineExam4/src/main/java/com/mycompany/repository/StudentExamScoreRepo.java
